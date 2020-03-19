@@ -1,0 +1,4 @@
+---
+fluentd_package_state: present
+fluentd_service_state: started
+fluentd_service_enabled: true

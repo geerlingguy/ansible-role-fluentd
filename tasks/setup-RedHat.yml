@@ -1,0 +1,11 @@
+---
+- name: Add td-agent GPG key.
+  rpm_key:
+    key: https://packages.treasuredata.com/GPG-KEY-td-agent
+    state: present
+
+- name: Add td-agent repository.
+  template:
+    src: td.repo.j2
+    dest: /etc/yum.repos.d/td.repo
+    mode: 0644
