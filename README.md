@@ -33,13 +33,13 @@ Controls the Fluentd service options.
 
 A list of Fluentd plugins to install.
 
-    fluentd_conf_matches: |
+    fluentd_conf_sources: |
       [see defaults/main.yml for default content]
 
     fluentd_conf_filters: |
       [see defaults/main.yml for default content]
 
-    fluentd_conf_sources: |
+    fluentd_conf_matches: |
       [see defaults/main.yml for default content]
 
 The configuration which will be placed into the `td-agent.conf` file which controls how Fluentd listens for, filters, and routes log data. The defaults set up some basic options which can direct data to Treasure Data, but you should override these values with what's appropriate for your logs.
