@@ -73,13 +73,28 @@ Note that Elasticsearch would require the Fluentd plugin `fluent-plugin-elastics
 
 ## Dependencies
 
-  - geerlingguy.java
+N/A
 
 ## Example Playbook
 
-    - hosts: search
-      roles:
-        - geerlingguy.fluentd
+```yaml
+- hosts: search
+
+  vars:
+    fluentd_conf_sources: |
+      <source>
+        @type tail
+        @id input_tail
+        <parse>
+          @type apache2
+        </parse>
+        path /var/log/httpd-access.log
+        tag apache.access
+      </source>
+
+  roles:
+    - geerlingguy.fluentd
+```
 
 ## License
 
