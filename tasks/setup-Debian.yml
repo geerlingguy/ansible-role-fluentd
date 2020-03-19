@@ -16,6 +16,6 @@
     repo: >-
       deb
       http://packages.treasuredata.com/3/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/
-      {{ ansible_distribution_release }} contrib'
+      {{ ansible_distribution_release }} contrib
     state: present
     update_cache: true
