@@ -13,6 +13,6 @@
 
 - name: Add td-agent repository.
   apt_repository:
-    repo: 'deb http://packages.treasuredata.com/3/{{ ansible_distribution }}/{{ ansible_distribution_release }}/ {{ ansible_distribution_release }} contrib'
+    repo: 'deb http://packages.treasuredata.com/3/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/ {{ ansible_distribution_release }} contrib'
     state: present
     update_cache: true

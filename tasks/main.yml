@@ -10,17 +10,26 @@
     name: td-agent
     state: "{{ fluentd_package_state }}"
 
-# - name: Configure Fluentd.
-#   template:
-#     src: td-agent.conf.j2
-#     dest: /etc/td-agent/td-agent.conf
-#     owner: root
-#     group: fluentd
-#     mode: 0660
-#   notify: restart fluentd
+- name: Configure Fluentd.
+  template:
+    src: td-agent.conf.j2
+    dest: /etc/td-agent/td-agent.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fluentd
+
+- name: Ensure Fluentd plugins are installed.
+  gem:
+    name: "{{ item.name | default(item) }}"
+    executable: /opt/td-agent/embedded/bin/fluent-gem
+    state: "{{ item.state | default('present') }}"
+    version: "{{ item.version | default(omit) }}"
+    user_install: false
+  with_items: "{{ fluentd_plugins }}"
 
 - name: Start Fluentd.
   service:
-    name: td-agent
+    name: "{{ fluentd_service_name }}"
     state: "{{ fluentd_service_state }}"
     enabled: "{{ fluentd_service_enabled }}"
