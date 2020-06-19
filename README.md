@@ -33,6 +33,12 @@ Controls the Fluentd service options.
 
 A list of Fluentd plugins to install.
 
+    fluentd_user_groups:
+      - adm
+      - syslog
+
+Include td-agent user to extra groups.
+
     fluentd_conf_sources: |
       [see defaults/main.yml for default content]
 

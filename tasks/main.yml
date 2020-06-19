@@ -28,6 +28,14 @@
     user_install: false
   with_items: "{{ fluentd_plugins }}"
 
+- name: Add td-agent user to other groups.
+  user:
+    name: td-agent
+    groups: "{{ item }}"
+    append: yes
+  with_items: "{{ fluentd_user_groups }}"
+  notify: restart fluentd
+
 - name: Start Fluentd.
   service:
     name: "{{ fluentd_service_name }}"

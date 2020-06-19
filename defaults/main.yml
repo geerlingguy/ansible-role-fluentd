@@ -5,6 +5,8 @@ fluentd_service_name: td-agent
 fluentd_service_state: started
 fluentd_service_enabled: true
 
+fluentd_user_groups: []
+
 fluentd_plugins:
   - fluent-plugin-elasticsearch
 
