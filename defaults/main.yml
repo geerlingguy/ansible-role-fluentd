@@ -10,7 +10,7 @@ fluentd_plugins:
 
 fluentd_conf_sources: |
   ## built-in TCP input
-  ## @see http://docs.fluentd.org/articles/in_forward
+  ## @see http://docs.fluentd.org/input/forward
   <source>
     @type forward
     @id input_forward
