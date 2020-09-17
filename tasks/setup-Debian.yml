@@ -1,4 +1,11 @@
 ---
+- name: Add required dependencies.
+  apt:
+    name:
+      - apt-transport-https
+      - gnupg2
+    state: present
+
 - name: Add td-agent apt key.
   apt_key:
     url: https://packages.treasuredata.com/GPG-KEY-td-agent
