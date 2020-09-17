@@ -19,11 +19,13 @@
     mode: 0644
   notify: restart fluentd
 
-- set_fact:
+- name: Determine fluent-gem executable location for td-agent v4
+  set_fact:
     fluent_gem_executable: /opt/td-agent/embedded/bin/fluent-gem
   when: fluentd_version < 4
 
-- set_fact:
+- name: Determine fluent-gem executable location for td-agent < v4
+  set_fact:
     fluent_gem_executable: /opt/td-agent/bin/fluent-gem
   when: fluentd_version >= 4
 
