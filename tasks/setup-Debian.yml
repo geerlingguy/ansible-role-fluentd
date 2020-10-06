@@ -1,9 +1,7 @@
 ---
 - name: Add required dependencies.
   apt:
-    name:
-      - apt-transport-https
-      - gnupg2
+    name: "{{ fluentd_package_dependencies }}"
     state: present
 
 - name: Add td-agent apt key.
@@ -11,11 +9,16 @@
     url: https://packages.treasuredata.com/GPG-KEY-td-agent
     state: present
 
+- name: Override repository path for Focal release.
+  set_fact:
+    override_release_name: "bionic"
+  when: ansible_distribution_release == "focal"
+
 - name: Add td-agent repository.
   apt_repository:
     repo: >-
       deb
-      http://packages.treasuredata.com/3/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/
-      {{ ansible_distribution_release }} contrib
+      https://packages.treasuredata.com/3/{{ ansible_distribution | lower }}/{{ override_release_name | default(ansible_distribution_release) }}/
+      {{ override_release_name | default(ansible_distribution_release) }} contrib
     state: present
     update_cache: true

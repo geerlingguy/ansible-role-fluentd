@@ -1,5 +1,8 @@
 ---
 fluentd_package_state: present
+fluentd_package_dependencies:
+  - apt-transport-https
+  - gnupg2
 
 fluentd_service_name: td-agent
 fluentd_service_state: started
