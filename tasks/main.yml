@@ -22,7 +22,7 @@
 - name: Ensure Fluentd plugins are installed.
   gem:
     name: "{{ item.name | default(item) }}"
-    executable: /opt/td-agent/embedded/bin/fluent-gem
+    executable: /usr/sbin/td-agent-gem 
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
     user_install: false
