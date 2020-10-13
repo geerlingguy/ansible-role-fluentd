@@ -6,6 +6,6 @@
 
 - name: Add td-agent repository.
   template:
-    src: td.repo.j2
+    src: "{{ fluentd_yum_repo_template }}"
     dest: /etc/yum.repos.d/td.repo
     mode: 0644

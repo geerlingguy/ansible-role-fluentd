@@ -22,6 +22,10 @@ The `td-agent` Fluentd package state; set to `latest` to upgrade or change versi
 
 Controls the Fluentd service options.
 
+    fluentd_yum_repo_template: td.repo.j2
+
+Controls the Fluentd yum repository template used.
+
     fluentd_plugins:
       - fluent-plugin-elasticsearch
 

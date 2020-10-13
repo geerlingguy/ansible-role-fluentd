@@ -5,6 +5,8 @@ fluentd_service_name: td-agent
 fluentd_service_state: started
 fluentd_service_enabled: true
 
+fluentd_yum_repo_template: td.repo.j2
+
 fluentd_plugins:
   - fluent-plugin-elasticsearch
 
