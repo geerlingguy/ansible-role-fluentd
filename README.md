@@ -12,6 +12,10 @@ N/A
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
+    fluentd_version: 3 (or 4)
+    
+The `td-agent` version to install. See https://docs.fluentd.org/quickstart/td-agent-v2-vs-v3-vs-v4 for more details.
+
     fluentd_package_state: present
 
 The `td-agent` Fluentd package state; set to `latest` to upgrade or change versions.

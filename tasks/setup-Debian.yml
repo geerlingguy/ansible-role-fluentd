@@ -15,7 +15,7 @@
   apt_repository:
     repo: >-
       deb
-      http://packages.treasuredata.com/3/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/
-      {{ ansible_distribution_release }} contrib
+      http://packages.treasuredata.com/{{ fluentd_version }}/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/
+      {{ ansible_distribution_release | lower }} contrib
     state: present
     update_cache: true

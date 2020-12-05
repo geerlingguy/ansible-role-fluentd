@@ -1,4 +1,5 @@
 ---
+fluentd_version: 3
 fluentd_package_state: present
 
 fluentd_service_name: td-agent

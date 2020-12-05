@@ -19,10 +19,20 @@
     mode: 0644
   notify: restart fluentd
 
+- name: Determine fluent-gem executable location for td-agent < v4
+  set_fact:
+    fluent_gem_executable: /opt/td-agent/embedded/bin/fluent-gem
+  when: fluentd_version < 4
+
+- name: Determine fluent-gem executable location for td-agent v4
+  set_fact:
+    fluent_gem_executable: /opt/td-agent/bin/fluent-gem
+  when: fluentd_version >= 4
+
 - name: Ensure Fluentd plugins are installed.
   gem:
     name: "{{ item.name | default(item) }}"
-    executable: /opt/td-agent/embedded/bin/fluent-gem
+    executable: "{{ fluent_gem_executable }}"
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
     user_install: false
