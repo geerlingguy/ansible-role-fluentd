@@ -1,6 +1,6 @@
 # Ansible Role: Fluentd
 
-[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-fluentd.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-fluentd)
+[![CI](https://github.com/geerlingguy/ansible-role-fluentd/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-fluentd/actions?query=workflow%3ACI)
 
 An Ansible Role that installs Fluentd on RedHat/CentOS or Debian/Ubuntu. This role installs `td-agent`, which is a standalone version that doesn't require Ruby to be installed on the system separately. See [differences between td-agent and Fluentd here](https://www.fluentd.org/faqs).
 
