@@ -9,5 +9,10 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
 
+    - name: Set fluentd_version for Ubuntu 20.04.
+      set_fact:
+        fluentd_version: 4
+      when: ansible_distribution_version == '20.04'
+
   roles:
     - role: geerlingguy.fluentd
