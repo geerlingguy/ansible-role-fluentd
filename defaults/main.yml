@@ -67,3 +67,5 @@ fluentd_conf_matches: |
     @type stdout
     @id output_stdout
   </match>
+
+fluentd_package_name: 'td-agent'
