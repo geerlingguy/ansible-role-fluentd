@@ -67,3 +67,6 @@ fluentd_conf_matches: |
     @type stdout
     @id output_stdout
   </match>
+
+fluentd_conf_system: |
+  ## System directives go here.
