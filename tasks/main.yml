@@ -12,7 +12,7 @@
 
 - name: Configure Fluentd.
   template:
-    src: td-agent.conf.j2
+    src: "{{ fluentd_conf_template }}"
     dest: /etc/td-agent/td-agent.conf
     owner: root
     group: root

@@ -9,6 +9,8 @@ fluentd_service_enabled: true
 fluentd_plugins:
   - fluent-plugin-elasticsearch
 
+fluentd_conf_template: td-agent.conf.j2
+
 fluentd_conf_sources: |
   ## built-in TCP input
   ## @see http://docs.fluentd.org/articles/in_forward
